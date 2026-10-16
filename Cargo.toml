@@ -2,14 +2,14 @@
 name = "lumi"
 version = "1.0.4"
 edition = "2021"
-authors = ["Mailifica <team@mailifica.com>"]
-description = "Official Rust SDK for Mailifica Email Infrastructure Platform"
+authors = ["Lumi <team@lumi.email>"]
+description = "Official Rust SDK for Lumi Email Infrastructure Platform"
 homepage = "https://lumi.email"
 documentation = "https://docs.rs/lumi"
 repository = "https://github.com/deveterim/lumi-rust"
 readme = "README.md"
 license = "MIT"
-keywords = ["mailifica", "email", "transactional", "sdk", "api"]
+keywords = ["lumi", "email", "transactional", "sdk", "api"]
 categories = ["email", "api-bindings", "web-programming"]
 
 [dependencies]

@@ -34,4 +34,3 @@ impl Lumi {
         }
     }
 }
-pub type Mailifica = Lumi;

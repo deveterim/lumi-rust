@@ -1,6 +1,6 @@
-# Mailifica Rust SDK (`mailifica`)
+# Lumi Rust SDK (`lumi`)
 
-> SDK oficial em Rust para a infraestrutura de e-mails transacionais **Mailifica**, com interface drop-in replacement compatível com o Resend Rust SDK.
+> SDK oficial em Rust para a infraestrutura de e-mails transacionais **Lumi**, com interface drop-in replacement compatível com o Resend Rust SDK.
 
 ---
 
@@ -8,7 +8,7 @@
 
 ```toml
 [dependencies]
-mailifica = "1.0.2"
+lumi = "1.0.2"
 tokio = { version = "1", features = ["full"] }
 ```
 
@@ -19,11 +19,11 @@ tokio = { version = "1", features = ["full"] }
 ### 1. Enviar E-mail Transacional
 
 ```rust
-use mailifica::{Mailifica, emails::CreateEmailBaseOptions};
+use lumi::{Lumi, emails::CreateEmailBaseOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mailifica = Mailifica::new("ma_live_123456789");
+    let lumi = Lumi::new("ma_live_123456789");
 
     let email = CreateEmailBaseOptions::new(
         "onboarding@suaempresa.ao",
@@ -32,7 +32,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     )
     .with_html("<h1>Olá!</h1><p>Seu e-mail transacional foi entregue.</p>");
 
-    let response = mailifica.emails.send(email).await?;
+    let response = lumi.emails.send(email).await?;
     println!("E-mail enviado! ID: {}", response.id);
 
     Ok(())
@@ -42,11 +42,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ### 2. Envio em Lote (Batch)
 
 ```rust
-use mailifica::{Mailifica, emails::CreateEmailBaseOptions};
+use lumi::{Lumi, emails::CreateEmailBaseOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mailifica = Mailifica::new("ma_live_123456789");
+    let lumi = Lumi::new("ma_live_123456789");
 
     let emails = vec![
         CreateEmailBaseOptions::new("news@suaempresa.ao", vec!["user1@gmail.com"], "News #1")
@@ -55,7 +55,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .with_html("<p>Conteúdo 2</p>"),
     ];
 
-    let batch_resp = mailifica.batch.send(emails).await?;
+    let batch_resp = lumi.batch.send(emails).await?;
     println!("Total enviados: {}", batch_resp.data.len());
 
     Ok(())
@@ -65,18 +65,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ### 3. Gestão de Domínios e API Keys
 
 ```rust
-use mailifica::{Mailifica, domains::CreateDomainOptions};
+use lumi::{Lumi, domains::CreateDomainOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mailifica = Mailifica::new("ma_live_123456789");
+    let lumi = Lumi::new("ma_live_123456789");
 
-    let domain = mailifica.domains.create(CreateDomainOptions {
+    let domain = lumi.domains.create(CreateDomainOptions {
         name: "meudominio.ao".into(),
         region: None,
     }).await?;
 
-    let verified = mailifica.domains.verify(&domain.id).await?;
+    let verified = lumi.domains.verify(&domain.id).await?;
     println!("Status do domínio: {}", verified.status);
 
     Ok(())
@@ -87,4 +87,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## 📄 Licença
 
-MIT © [Mailifica](https://mailifica.com)
+MIT © [Lumi](https://lumi.email)

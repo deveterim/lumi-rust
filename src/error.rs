@@ -8,7 +8,7 @@ pub enum Error {
     #[error("JSON error: {0}")]
     Json(#[from] serde_json::Error),
 
-    #[error("Mailifica API error ({status}): {message}")]
+    #[error("Lumi API error ({status}): {message}")]
     Api {
         status: reqwest::StatusCode,
         message: String,

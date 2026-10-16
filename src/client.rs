@@ -22,7 +22,7 @@ impl Client {
                 .map_err(|_| Error::MissingApiKey)?,
         );
         headers.insert(CONTENT_TYPE, HeaderValue::from_static("application/json"));
-        headers.insert(USER_AGENT, HeaderValue::from_static("mailifica-rust/1.0.0"));
+        headers.insert(USER_AGENT, HeaderValue::from_static("lumi-rust/1.0.0"));
 
         let http = reqwest::Client::builder()
             .default_headers(headers)
