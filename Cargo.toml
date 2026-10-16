@@ -1,12 +1,12 @@
 [package]
-name = "mailifica"
+name = "lumi"
 version = "1.0.4"
 edition = "2021"
 authors = ["Mailifica <team@mailifica.com>"]
 description = "Official Rust SDK for Mailifica Email Infrastructure Platform"
-homepage = "https://mailifica.com"
-documentation = "https://docs.rs/mailifica"
-repository = "https://github.com/mailifica/mailifica-rust"
+homepage = "https://lumi.email"
+documentation = "https://docs.rs/lumi"
+repository = "https://github.com/deveterim/lumi-rust"
 readme = "README.md"
 license = "MIT"
 keywords = ["mailifica", "email", "transactional", "sdk", "api"]

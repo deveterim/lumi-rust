@@ -28,8 +28,8 @@ impl Client {
             .default_headers(headers)
             .build()?;
 
-        let base_url = std::env::var("MAILIFICA_BASE_URL")
-            .unwrap_or_else(|_| "https://api.mailifica.com/v1".to_string())
+        let base_url = std::env::var("LUMI_BASE_URL")
+            .unwrap_or_else(|_| "https://api.lumi.email/v1".to_string())
             .trim_end_matches('/')
             .to_string();
 

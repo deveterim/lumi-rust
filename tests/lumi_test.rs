@@ -1,4 +1,4 @@
-use mailifica::{
+use lumi::{
     emails::CreateEmailBaseOptions,
     webhooks::Webhooks,
 };

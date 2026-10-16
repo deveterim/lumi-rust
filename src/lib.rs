@@ -16,16 +16,16 @@ use emails::Emails;
 pub use webhooks::Webhooks;
 
 #[derive(Clone)]
-pub struct Mailifica {
+pub struct Lumi {
     pub emails: Emails,
     pub batch: Batch,
     pub domains: Domains,
     pub api_keys: ApiKeys,
 }
 
-impl Mailifica {
+impl Lumi {
     pub fn new<K: Into<String>>(api_key: K) -> Self {
-        let client = Client::new(api_key).expect("Failed to initialize Mailifica client");
+        let client = Client::new(api_key).expect("Failed to initialize Lumi client");
         Self {
             emails: Emails::new(client.clone()),
             batch: Batch::new(client.clone()),
@@ -34,3 +34,4 @@ impl Mailifica {
         }
     }
 }
+pub type Mailifica = Lumi;
