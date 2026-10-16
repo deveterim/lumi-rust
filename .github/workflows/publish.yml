@@ -1,0 +1,44 @@
+# ==============================================================================
+# GitHub Actions Workflow: Publish Rust Crate to crates.io
+# ==============================================================================
+#
+# Before running this workflow, create an API token on https://crates.io
+# (Account Settings -> API Tokens) with "publish-update" & "publish-new" scopes
+# and register the secret in:
+# GitHub Repository -> Settings -> Secrets and variables -> Actions:
+#
+# Secret Name: CRATES_IO_TOKEN
+# Secret Value: cio... (seu token gerado no crates.io)
+# ==============================================================================
+
+name: Publish to crates.io
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Build, Test and Publish to crates.io
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run Tests
+        run: cargo test --all-targets --all-features
+
+      - name: Package Verification
+        run: cargo package --no-verify
+
+      - name: Publish to crates.io
+        run: cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
