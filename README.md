@@ -23,7 +23,7 @@ use lumi::{Lumi, emails::CreateEmailBaseOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let lumi = Lumi::new("ma_live_123456789");
+    let lumi = Lumi::new("lu_live_123456789");
 
     let email = CreateEmailBaseOptions::new(
         "onboarding@suaempresa.ao",
@@ -46,7 +46,7 @@ use lumi::{Lumi, emails::CreateEmailBaseOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let lumi = Lumi::new("ma_live_123456789");
+    let lumi = Lumi::new("lu_live_123456789");
 
     let emails = vec![
         CreateEmailBaseOptions::new("news@suaempresa.ao", vec!["user1@gmail.com"], "News #1")
@@ -69,7 +69,7 @@ use lumi::{Lumi, domains::CreateDomainOptions};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let lumi = Lumi::new("ma_live_123456789");
+    let lumi = Lumi::new("lu_live_123456789");
 
     let domain = lumi.domains.create(CreateDomainOptions {
         name: "meudominio.ao".into(),
