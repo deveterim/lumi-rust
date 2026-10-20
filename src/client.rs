@@ -29,7 +29,7 @@ impl Client {
             .build()?;
 
         let base_url = std::env::var("LUMI_BASE_URL")
-            .unwrap_or_else(|_| "https://api.lumi.email/v1".to_string())
+            .unwrap_or_else(|_| "https://api.lumi.ao".to_string())
             .trim_end_matches('/')
             .to_string();
 

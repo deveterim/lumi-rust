@@ -82,9 +82,14 @@ pub struct CreateEmailResponse {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Email {
     pub id: String,
+    #[serde(default)]
     pub from: String,
-    pub to: Vec<String>,
+    #[serde(default)]
+    pub to: serde_json::Value,
+    #[serde(default)]
     pub subject: String,
+    #[serde(default)]
     pub status: String,
+    #[serde(default, alias = "createdAt")]
     pub created_at: String,
 }

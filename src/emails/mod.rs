@@ -23,10 +23,10 @@ impl Emails {
         if let Some(map) = body.as_object_mut() {
             map.insert("to".to_string(), to_value);
         }
-        self.client.post("/emails", &body).await
+        self.client.post("/api/v1/send", &body).await
     }
 
     pub async fn get(&self, email_id: &str) -> Result<Email> {
-        self.client.get(&format!("/emails/{}", email_id)).await
+        self.client.get(&format!("/api/v1/send/{}", email_id)).await
     }
 }
