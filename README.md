@@ -1,4 +1,4 @@
-# Lumi Rust SDK (`lumi`)
+# Lumi Rust SDK (`lumi-email`)
 
 > SDK oficial em Rust para a infraestrutura de e-mails transacionais **Lumi**, com interface drop-in replacement compatível com o Resend Rust SDK.
 
@@ -8,7 +8,7 @@
 
 ```toml
 [dependencies]
-lumi = "1.0.2"
+lumi-email = "1.0.4"
 tokio = { version = "1", features = ["full"] }
 ```
 

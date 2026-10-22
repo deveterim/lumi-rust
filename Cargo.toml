@@ -1,16 +1,20 @@
 [package]
-name = "lumi"
+name = "lumi-email"
 version = "1.0.4"
 edition = "2021"
 authors = ["Lumi <team@lumi.email>"]
 description = "Official Rust SDK for Lumi Email Infrastructure Platform"
 homepage = "https://lumi.email"
-documentation = "https://docs.rs/lumi"
+documentation = "https://docs.rs/lumi-email"
 repository = "https://github.com/deveterim/lumi-rust"
 readme = "README.md"
 license = "MIT"
 keywords = ["lumi", "email", "transactional", "sdk", "api"]
 categories = ["email", "api-bindings", "web-programming"]
+
+[lib]
+name = "lumi"
+path = "src/lib.rs"
 
 [dependencies]
 reqwest = { version = "0.11", default-features = false, features = ["rustls-tls", "json"] }
